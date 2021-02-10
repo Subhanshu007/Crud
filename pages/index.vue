@@ -31,7 +31,7 @@
               <button
                 class="btn btn-lg btn-primary btn-block mt-4"
                 type="submit"
-                @click="submitForm"
+                @click.stop.prevent="submitForm"
               >
                 Sign In
               </button>
@@ -60,7 +60,8 @@ export default {
         this.loginDetails.email === "test@test.com" &&
         this.loginDetails.password === "admin"
       ) {
-        this.$router.push({ path: "table" });
+        console.log(this.$router);
+        this.$router.push("/table");
       }
     },
   },
